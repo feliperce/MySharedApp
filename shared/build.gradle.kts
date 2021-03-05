@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    kotlin("native.cocoapods") version "1.4.31"
 }
 
 kotlin {
@@ -14,6 +15,20 @@ kotlin {
             }
         }
     }
+
+    // CocoaPods requires the podspec to have a version.
+    version = "1.0"
+
+    cocoapods {
+        // Configure fields required by CocoaPods.
+        summary = "Some description for a Kotlin/Native module"
+        homepage = "Link to a Kotlin/Native module homepage"
+
+        // You can change the name of the produced framework.
+        // By default, it is the name of the Gradle project.
+        frameworkName = "my_framework"
+    }
+
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
