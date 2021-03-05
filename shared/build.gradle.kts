@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin("native.cocoapods") version "1.4.31"
+    kotlin("native.cocoapods")
 }
 
 kotlin {
